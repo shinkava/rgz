@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="menu.js"></script>
+    <style>
+        div {
+            margin-top: 15px;
+            font-size: 20px;
+            width: 1500px;
+        }
+        button {
+            background-color: #23609e;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            height: 40px;
+            width: 80px;
+            border-color: #23609e;
+            font-family: Impact;
+            position: fixed;
+            top: 20px;
+        }
+        iframe {
+            position: relative;
+            top: -240px;
+            right: -1000px;
+            padding: 10px;
+        }
+        .header {
+            padding-bottom: 20px; 
+            border-bottom: 1px solid; 
+            width: 850px;
+            font-size: 20px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0px;
+            z-index: 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" width="150" height="90"
+        style="position: fixed; top: -4px; right: -20px;">
+        <div style="
+        position: fixed; 
+        top: -3px; 
+        right: -1070px; 
+        font-size: 45px; 
+        font-family: Impact;
+        color: DarkRed;
+        ">
+            интернет аптека
+        </div>
+        <button onclick=Menu() id="open">
+            Меню
+        </button>
+        <button onclick=Close() id="close" style="display: none;">
+            Скрыть
+        </button>
+        <a id="page1" href="page_1.html" style="
+            position: fixed; 
+            top: 15px; 
+            left: 100px;
+            display: none;">
+            О компании
+        </a>
+        <a id="page2" href="page_2.html" style="
+            position: fixed; 
+            top: 15px; 
+            left: 210px;
+            display: none;">
+            Финансовые показатели
+        </a>
+        <a id="page3" href="page_3.html" style="
+            position: fixed; 
+            top: 15px; 
+            left: 425px;
+            display: none;
+            text-decoration: underline;">
+            Контакты
+        </a>
+        <a id="page4" href="page_4.html" style="
+            position: fixed; 
+            top: 15px; 
+            left: 515px;
+            display: none;">
+            Видео
+        </a>
+    </header>
+    <main>
+        <h2>
+            <div class="header">
+                Контактные данные
+            </div>
+        </h2>
+        <div>
+            <b>Общество с ограниченной ответственностью «АПТЕКА-А.в.е»</b><br>
+            Юридический адрес: 115093, г. Москва, ул. Большая Серпуховская,
+            д.48, строение 1, комната 3<br>
+            ИНН 7705947629<br>
+            КПП 770501001<br>
+            ОГРН 1117746309526<br>
+            <b>Телефон</b> +7 (495) 797-63-36<br>
+            <b>Электронная почта</b>: feedback@366.ru<br>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2247.101558363775!2d37.622120695277815!3d55.721987203643344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54b1656ad460d%3A0x69e4abbfbb7249d4!2z0JHQvtC70YzRiNCw0Y8g0KHQtdGA0L_Rg9GF0L7QstGB0LrQsNGPINGD0LsuLCA0OCwg0JzQvtGB0LrQstCwLCAxMTUwOTM!5e0!3m2!1sru!2sru!4v1685445884448!5m2!1sru!2sru" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </main>
+    <footer>
+        &copy; 366.ru, 2023. <br>
+        ООО «АПТЕКА-А.в.е» 
+    </footer>
+</body>
+</html>

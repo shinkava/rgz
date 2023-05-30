@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="menu.js"></script>
+    <script>
+        function table() {
+            let close = [
+                12.502,
+                12.556,
+                12.502,
+                12.44,
+                12.39,
+                12.526,
+                12.584,
+                12.45,
+                12.478,
+                12.47,
+                12.602,
+                12.69,
+                12.668,
+                12.636,
+                12.576,
+                12.57,
+                12.536,
+                12.48,
+                12.402,
+            ];
+            let data = [
+                '02.05.2023', 
+                '03.05.2023',
+                '04.05.2023',
+                '05.05.2023',
+                '08.05.2023',
+                '10.05.2023',
+                '11.05.2023',
+                '12.05.2023',
+                '15.05.2023',
+                '16.05.2023',
+                '17.05.2023',
+                '18.05.2023',
+                '19.05.2023',
+                '22.05.2023',
+                '23.05.2023',
+                '24.05.2023',
+                '25.05.2023',
+                '26.05.2023',
+                '29.05.2023',
+            ];
+            for (let i = 1; i < 5; i++) {
+                let table = document.getElementById('table' + i);
+                table.border = '1';
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                let td2 = document.createElement('td');
+                let td3 = document.createElement('td');
+                td.innerHTML = 'Дата';
+                td2.innerHTML = 'Закрытия';
+                td3.innerHTML = 'Отклонение';
+                tr.appendChild(td);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                table.appendChild(tr);
+            }
+            let table1 = document.getElementById('table1');
+            let table2 = document.getElementById('table2');
+            let table3 = document.getElementById('table3');
+            let table4 = document.getElementById('table4');
+            for (let i = 0; i < data.length; i++) {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                let td2 = document.createElement('td');
+                let td3 = document.createElement('td');
+                if (i > 0) {
+                    x = close[i] - close[i-1],
+                    td3.innerHTML = Math.round(x * 1000) / 1000;
+                }
+                else {
+                    td3.innerHTML = ' ';
+                }
+                if (i <= 4) {
+                    td.innerHTML = data[i];
+                    td2.innerHTML = close[i];
+                    tr.appendChild(td);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    table1.appendChild(tr);
+                }
+                else if (i <= 9) {
+                    td.innerHTML = data[i];
+                    td2.innerHTML = close[i];
+                    tr.appendChild(td);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    table2.appendChild(tr);
+                }
+                else if (i <= 14) {
+                    td.innerHTML = data[i];
+                    td2.innerHTML = close[i];
+                    tr.appendChild(td);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    table3.appendChild(tr);
+                }
+                else if (i <= 22) {
+                    td.innerHTML = data[i];
+                    td2.innerHTML = close[i];
+                    tr.appendChild(td);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    table4.appendChild(tr);
+                }
+            }
+            let sum = 0;
+            for (let i = 0; i < close.length; i++) {
+                sum = sum + close[i];
+            }
+            let average = sum / close.length;
+            average = Math.round(average * 1000) / 1000;
+            let min = Math.min.apply(Math, close);
+            let max = Math.max.apply(Math, close);
+            let th = document.getElementById('th');
+            th.style.display = 'block';
+            th.innerHTML = 'Среднее значение: ' + average;
+            let th2 = document.getElementById('th2');
+            th2.style.display = 'block';
+            th2.innerHTML = 'Максимальное значение: ' + max;
+            let th3 = document.getElementById('th3');
+            th3.style.display = 'block';
+            th3.innerHTML = 'Минимальное значение: ' + min;
+        }
+        function equity() {
+            let button = document.getElementById('button_eq');
+            button.style.display = 'none';
+            let equity = document.getElementById('equity');
+            equity.innerHTML = 'Общее число акций на май 2023: 6.708.243.398';
+        }
+        function kapital() {
+            let button = document.getElementById('button_kap');
+            button.style.display = 'none';
+            let kapital = document.getElementById('kapital');
+            kapital.innerHTML = 'Капитализация на конец апреля составила: '
+        }
+    </script>
+    <style>
+        div {
+            margin-top: 15px;
+            font-size: 20px;
+            width: 1500px;
+        }
+        table {
+            margin-top: 15px;
+            font-size: 20px;
+        }
+        button {
+            background-color: #23609e;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            height: 40px;
+            width: 1820px;
+            border-color: #23609e;
+            font-family: Impact;
+            margin-top: 15px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+        }
+        .menu {
+            background-color: #23609e;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            height: 40px;
+            width: 80px;
+            border-color: #23609e;
+            font-family: Impact;
+            position: fixed;
+            top: 5px;
+        }
+        .right {
+            background-color: white;
+            color: black;
+            border: 1px solid;
+            border-color: black;
+            position: fixed;
+            top: 100px;
+            width: 300px;
+            right: 10px;
+            padding: 10px;
+        }
+        .header {
+            padding-bottom: 20px; 
+            border-bottom: 1px solid; 
+            width: 1820px;
+            font-size: 25px;
+        }
+        .main_div {
+            width: 1820px;
+        }
+        .detail {
+            display: none;
+            background-color: #23609e;
+            width: 280px;
+            color: white;
+            padding: 10px;
+            font-family: Impact;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" width="150" height="90"
+        style="position: fixed; top: -4px; right: -20px;">
+        <div style="
+        position: fixed; 
+        top: -3px; 
+        right: -1070px; 
+        font-size: 45px; 
+        font-family: Impact;
+        color: DarkRed;
+        ">
+            интернет аптека
+        </div>
+        <button onclick=Menu() id="open" class="menu">
+            Меню
+        </button>
+        <button onclick=Close() id="close" class="menu" style="display: none;">
+            Скрыть
+        </button>
+        <a id="page1" href="page_1.html" style="
+            position: fixed; 
+            top: 15px; 
+            left: 100px;
+            display: none;">
+            О компании
+        </a>
+        <a id="page2" href="page_2.html" style="
+            position: fixed; 
+            top: 15px; 
+            left: 210px;
+            display: none;
+            text-decoration: underline;">
+            Финансовые показатели
+        </a>
+        <a id="page3" href="page_3.html" style="
+            position: fixed; 
+            top: 15px; 
+            left: 425px;
+            display: none;">
+            Контакты
+        </a>
+        <a id="page4" href="page_4.html" style="
+            position: fixed; 
+            top: 15px; 
+            left: 515px;
+            display: none;">
+            Видео
+        </a>
+    </header>
+    <main>
+        <h2>
+            <div class="header" class="main_div">
+                Финансовые показатели<br><br>
+                Капитализация на конец апреля
+            </div>
+        </h2>
+        <div class="main_div">
+            <b>Капитализация</b> - оценка стоимости предприятия, земельного
+            участка, ценных бумаг и другого имущества, посредством расчёта 
+            приведённой суммы ожидаемых доходов, взятой за весь период его 
+            предполагаемого использования.<br>
+            <button onclick="kapital()" id="button_kap">Капитализация компании</button>
+            <div id="kapital" class="main_div"></div>
+        </div>
+        <h2>
+            <div class="header" class="main_div">
+                Акции компании
+            </div>
+        </h2>
+        <div class="main_div">
+            <b>Акция</b> - эмиссионная ценная бумага, доля владения 
+            компанией, закрепляющая права её владельца на получение 
+            части прибыли акционерного общества в виде дивидендов, на 
+            участие в управлении акционерным обществом и на часть 
+            имущества, остающегося после его ликвидации, пропорционально 
+            количеству акций, находящихся в собственности у владельца. <br>
+            <button onclick="equity()" id="button_eq">Общее число акций</button>
+            <div id="equity" class="main_div"></div>
+        </div>
+        <button onclick="table()">Акции компании</button>
+        <table id="table1"style="
+            position: fixed;
+            top: 600px;
+            left: 50px
+        "></table>
+        <table id="table2" style="
+            position: fixed;
+            top: 600px;
+            left: 360px
+        "></table>
+        <table id="table3" style="
+            position: fixed;
+            top: 600px;
+            left: 670px
+        "></table>
+        <table id="table4" style="
+            position: fixed;
+            top: 600px;
+            left: 980px
+        "></table>
+        <div id="th" class='detail' style="
+            position: fixed;
+            top: 600px;
+            left: 1300px
+        "></div>
+        <div id="th2" class='detail' style="
+            position: fixed;
+            top: 650px;
+            left: 1300px
+        "></div>
+        <div id="th3" class='detail' style="
+            position: fixed;
+            top: 700px;
+            left: 1300px
+        "></div>
+    </main>
+    <footer>
+        &copy; 366.ru, 2023. <br>
+        ООО «АПТЕКА-А.в.е» 
+    </footer>
+</body>
+</html>
